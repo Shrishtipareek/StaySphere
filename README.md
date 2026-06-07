@@ -1,19 +1,19 @@
-# StaySphere – Full Stack Property Rental Platform
+# StaySphere – Full Stack Property Rental & Listing Platform
 
-StaySphere is a full-stack property rental and listing platform inspired by Airbnb, built using Node.js, Express.js, MongoDB, EJS, and Bootstrap. The application allows users to browse, create, edit, and manage property listings through an intuitive and responsive interface.
+StaySphere is a full-stack web application designed for property discovery, rental management, and user-generated reviews. Built with Node.js, Express.js, MongoDB, and EJS, the platform enables users to seamlessly explore, create, and manage property listings through a secure and responsive interface.
 
-### Key Features
+## Key Features
 
-* User authentication and authorization using Passport.js.
-* Secure Login and Signup functionality with session-based authentication.
-* Create, Read, Update, and Delete (CRUD) operations for property listings.
-* Review and rating system for listed properties.
-* Image management and property showcase.
-* Server-side validation using Joi for robust data handling.
-* Flash messages and error handling for improved user experience.
-* Responsive UI built with Bootstrap and EJS templating.
+* Secure user authentication and authorization using Passport.js.
+* Session-based Login and Signup system with protected routes.
+* Complete CRUD functionality for property listings and user reviews.
+* Property review and rating system for enhanced user engagement.
+* Image-based property showcase with intuitive listing management.
+* Server-side validation using Joi to ensure data integrity.
+* Flash messaging and centralized error handling for better user experience.
+* Responsive and mobile-friendly UI developed with Bootstrap and EJS.
 
-### Tech Stack
+## Tech Stack
 
 * Frontend: HTML, CSS, Bootstrap, EJS
 * Backend: Node.js, Express.js
@@ -21,9 +21,9 @@ StaySphere is a full-stack property rental and listing platform inspired by Airb
 * Authentication: Passport.js
 * Validation: Joi
 
-### Highlights
+## Highlights
 
-* Implemented secure user access controls and protected routes.
-* Designed a scalable MongoDB schema with relational references.
-* Developed a complete property management workflow similar to Airbnb.
-* Integrated review management and user-generated content features.
+* Implemented role-based access control for secure listing management.
+* Designed scalable MongoDB schemas with relational references between users, listings, and reviews.
+* Built an end-to-end property management workflow including listing creation, editing, review management, and deletion.
+* Applied MVC architecture and reusable middleware for maintainable and scalable code organization.
