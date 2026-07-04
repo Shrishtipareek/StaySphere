@@ -1,0 +1,375 @@
+<%- layout("../layouts/boilerplate") %>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/result.css">
+
+<%- include("../includes/navbar") %>
+<div id="successToast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    Your itinerary has been generated successfully.
+
+</div>
+
+<!-- ===========================
+RESULT HERO
+=========================== -->
+
+<section class="result-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            ✨ StaySphere AI Concierge
+        </span>
+
+        <h1>
+            <%= itinerary.destination %>
+        </h1>
+
+        <div class="trip-info">
+
+            <div class="trip-chip">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <%= itinerary.duration %>
+
+            </div>
+
+            <div class="trip-chip">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <%= itinerary.estimatedBudget %>
+
+            </div>
+
+        </div>
+
+        <p class="trip-summary">
+
+            <%= itinerary.summary %>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+OVERVIEW
+=========================== -->
+
+<section class="trip-overview">
+
+    <div class="overview-card">
+
+        <div class="overview-icon">
+
+            <i class="fa-solid fa-earth-asia"></i>
+
+        </div>
+
+        <h3>Destination</h3>
+
+        <p>
+
+            <%= itinerary.destination %>
+
+        </p>
+
+    </div>
+
+
+    <div class="overview-card">
+
+        <div class="overview-icon">
+
+            <i class="fa-solid fa-clock"></i>
+
+        </div>
+
+        <h3>Duration</h3>
+
+        <p>
+
+            <%= itinerary.duration %>
+
+        </p>
+
+    </div>
+
+
+    <div class="overview-card">
+
+        <div class="overview-icon">
+
+            <i class="fa-solid fa-money-bill-wave"></i>
+
+        </div>
+
+        <h3>Budget</h3>
+
+        <p>
+
+            <%= itinerary.estimatedBudget %>
+
+        </p>
+
+    </div>
+
+</section>
+<!-- ===========================
+DAY BY DAY ITINERARY
+=========================== -->
+
+<section class="result-layout">
+
+    <div class="timeline-container">
+
+    <div class="section-heading">
+
+        <span>YOUR JOURNEY</span>
+
+        <h2>Day-by-Day Luxury Itinerary</h2>
+
+    </div>
+
+    <% itinerary.days.forEach(day => { %>
+
+        <div class="day-card">
+
+            <div class="day-left">
+
+                <div class="day-circle">
+
+                    Day <%= day.day %>
+
+                </div>
+
+            </div>
+
+            <div class="day-right">
+
+                <h3><%= day.title %></h3>
+
+                <div class="activity-list">
+
+                    <% day.activities.forEach(activity => { %>
+
+                        <div class="activity-item">
+
+                            <div class="activity-dot"></div>
+
+                            <p><%= activity %></p>
+
+                        </div>
+
+                    <% }) %>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    <% }) %>
+
+</section>
+    </div>
+
+    <!-- Sidebar Starts -->
+
+    <aside class="sidebar">
+
+        <!-- Budget -->
+
+        <div class="sidebar-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <h3>Estimated Budget</h3>
+
+            <h2><%= itinerary.estimatedBudget %></h2>
+
+        </div>
+
+
+
+        <!-- Packing -->
+
+        <div class="sidebar-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-suitcase"></i>
+            </div>
+
+            <h3>Packing List</h3>
+
+            <ul>
+
+                <% itinerary.packingList.forEach(item => { %>
+
+                    <li>✔ <%= item %></li>
+
+                <% }) %>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Restaurants -->
+
+        <div class="sidebar-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+
+            <h3>Recommended Restaurants</h3>
+
+            <ul>
+
+                <% itinerary.restaurants.forEach(item => { %>
+
+                    <li>🍽 <%= item %></li>
+
+                <% }) %>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Hidden Gems -->
+
+        <div class="sidebar-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <h3>Hidden Gems</h3>
+
+            <ul>
+
+                <% itinerary.hiddenGems.forEach(item => { %>
+
+                    <li>📍 <%= item %></li>
+
+                <% }) %>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Travel Tips -->
+
+        <div class="sidebar-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <h3>Travel Tips</h3>
+
+            <ul>
+
+                <% itinerary.travelTips.forEach(item => { %>
+
+                    <li>💡 <%= item %></li>
+
+                <% }) %>
+
+            </ul>
+
+        </div>
+
+    </aside>
+
+</section>
+
+<!-- ==========================
+ACTION BUTTONS
+========================== -->
+
+<section class="trip-actions">
+
+    <a href="/ai/planner" class="action-btn secondary">
+
+        <i class="fa-solid fa-plus"></i>
+
+        Plan Another Trip
+
+    </a>
+
+    <button class="action-btn primary" id="saveTrip">
+
+        <i class="fa-solid fa-heart"></i>
+
+        Save Trip
+
+    </button>
+
+    <button class="action-btn primary" id="downloadPDF">
+
+        <i class="fa-solid fa-file-pdf"></i>
+
+        Download PDF
+
+    </button>
+
+    <button class="action-btn primary" id="shareTrip">
+
+        <i class="fa-solid fa-share-nodes"></i>
+
+        Share Trip
+
+    </button>
+
+</section>
+<section class="trip-finish">
+
+    <div class="finish-card">
+
+        <span>✨ StaySphere AI</span>
+
+        <h2>
+
+            Your Luxury Journey Awaits
+
+        </h2>
+
+        <p>
+
+            Every itinerary is uniquely crafted by AI.
+            Save it, share it, or create another unforgettable experience.
+
+        </p>
+
+        <a href="/listings">
+
+            Explore Luxury Stays
+
+        </a>
+
+    </div>
+
+</section>
+<script src="/js/result.js"></script>
